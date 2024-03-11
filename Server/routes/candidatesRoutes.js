@@ -7,6 +7,8 @@ const {getACandidadte,
     addCandidate,
     deleteCandidate} = require("../controllers/candidateControllers") ;
 
+// All Required CRUD Operations 
+
 router.get("/",getAllCandidadtes );
 router.post("/", addCandidate);  
 router.get("/:id",getACandidadte);
