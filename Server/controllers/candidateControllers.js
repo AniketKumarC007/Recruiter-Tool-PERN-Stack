@@ -9,12 +9,13 @@ const getAllCandidadtes = async (req, res) => {
 };
 const getACandidadte = async (req, res) => {
   try {
+    // console.log ("Request here") ;
     const { id } = req.params;
     const candidate = await pool.query(
       "SELECT * FROM Candidate WHERE candidate_id = $1",
       [id]
     );
-
+      // console.log (candidate.rows[0]) ;
     return res.status(200).json(candidate.rows[0]);
   } catch (err) {
     console.error(err.message);
@@ -37,24 +38,24 @@ const addCandidate = async (req, res) => {
       skills_qualifications,
     } = req.body;
 
-    console.log (req.body) ;
+    // console.log (req.body) ;
 
-    // const newCandidate = await pool.query(
-    //   "INSERT INTO Candidate (name, email, phone, status, expected_salary, react_score, node_score, skills_qualifications) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-    //   [
-    //     name,
-    //     email,
-    //     phone,
-    //     status,
-    //     expected_salary,
-    //     react_score,
-    //     node_score,
-    //     skills_qualifications,
-    //   ]
-    // );
+    const newCandidate = await pool.query(
+      "INSERT INTO Candidate (name, email, phone, status, expected_salary, react_score, node_score, skills_qualifications) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+      [
+        name,
+        email,
+        phone,
+        status,
+        expected_salary,
+        react_score,
+        node_score,
+        skills_qualifications,
+      ]
+    );
 
-    // return res.status(201).json(newCandidate.rows[0]);
-    return res.send ("OK") ;
+    return res.status(201).json(newCandidate.rows[0]);
+    // return res.send ("OK") ;
   } catch (err) {
     console.error(err.message);
     return res.status(500).send("Error adding candidate");

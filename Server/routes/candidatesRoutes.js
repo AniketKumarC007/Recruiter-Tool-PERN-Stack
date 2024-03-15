@@ -6,11 +6,12 @@ const {getACandidadte,
     updateCandidate,
     addCandidate,
     deleteCandidate} = require("../controllers/candidateControllers") ;
-
+const validateRequestBody = require("../middleware/validationMiddleware") ;
+const computeScore = require("../middleware/computeScoreMiddleware");
 // All Required CRUD Operations 
 
 router.get("/",getAllCandidadtes );
-router.post("/", addCandidate);  
+router.post("/",validateRequestBody,computeScore, addCandidate);  
 router.get("/:id",getACandidadte);
 router.put("/:id",updateCandidate);
 router.delete("/:id", deleteCandidate);

@@ -6,6 +6,7 @@ import AddCandidate from './pages/AddCandidate';
 import Candidates from './components/Candidates';
 import Candidate from './components/Candidate';
 import Navbar from './components/Navbar';
+
 function App() {
 
   return (
