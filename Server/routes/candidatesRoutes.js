@@ -13,7 +13,7 @@ const computeScore = require("../middleware/computeScoreMiddleware");
 router.get("/",getAllCandidadtes );
 router.post("/",validateRequestBody,computeScore, addCandidate);  
 router.get("/:id",getACandidadte);
-router.put("/:id",updateCandidate);
+router.put("/:id",validateRequestBody,computeScore,updateCandidate);
 router.delete("/:id", deleteCandidate);
 
 module.exports = router ; 

@@ -1,8 +1,14 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-const AddCandidate = () =>{
+import { Link, useNavigate ,useParams} from 'react-router-dom';
+import Candidate from '../components/Candidate';
+const UpdateCandidate = () =>{
     const navigate = useNavigate();
+    
+    const { id } = useParams();
+    // console.log(id) ;
+
+    const URL = `http://localhost:5000/candidates/${id}` ;
     const [formData , setFormData] = useState(
         {
             name: "",
@@ -16,22 +22,86 @@ const AddCandidate = () =>{
             newSkill :"",
         }
     )
-
+    
     const [errMsg , setErrMsg] = useState(null) ;
     
+    useEffect(() => {
+      const fetchCandidateData = async () => {
+          try {
+              const response = await axios.get(URL);
+              const candidateData = response.data;
+              // console.log (candidateData);
+              setFormData({
+                  name: candidateData.name,
+                  email: candidateData.email,
+                  phone: candidateData.phone,
+                  status: candidateData.status,
+                  expected_salary: candidateData.expected_salary,
+                  skills_qualifications: candidateData.skills_qualifications,
+                  newSkill: "",
+              });
+
+              if (candidateData.react_score === "3") {
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    react_score: "Over 2 years",
+                }));
+              }
+              else if (candidateData.react_score === "2") {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  react_score: "1-2 years",
+                }));
+              }
+              else{
+                setFormData((prevData) => ({
+                  ...prevData,
+                  react_score: "Less than a year",
+                }));
+              }
+
+              if (candidateData.node_score === "3") {
+                setFormData((prevData)=>({
+                  ...prevData,
+                  node_score:"Over 2 years",
+                }))
+              }
+              else if (candidateData.node_score === "2") {
+                setFormData((prevData)=>({
+                  ...prevData,
+                  node_score:"1-2 years",
+                }))
+              }
+              else{
+                setFormData((prevData)=>(
+                  {
+                    ...prevData,
+                    node_score:"Less than a year"
+                  }
+                ))
+              }
+
+          } catch (error) {
+              console.error("Error fetching candidate data:", error);
+          }
+      };
+
+      fetchCandidateData();
+  }, [id]);
+
     // Final Submission Handler 
 
     const submitFormData = async () => {
         try {
-          const response = await axios.post('http://localhost:5000/candidates', formData, {
+          const response = await axios.put(URL, formData, {
             headers: {
               'Content-Type': 'application/json',
             },
           });
 
           setErrMsg(null) ;
-          console.log('Form data submitted successfully:', response.data);
-          navigate('/candidates');
+          // console.log('Form data Updated successfully:', response.data);
+          navigate(`/candidates/${id}`);
         } catch (err) {
           // console.log ( "In Here") ;
           // console.log (err.response.data.error) ;
@@ -90,7 +160,7 @@ const AddCandidate = () =>{
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        console.log(formData); 
+        // console.log(formData); 
         submitFormData();
     }
 
@@ -99,6 +169,8 @@ const AddCandidate = () =>{
     return (
     
         <div className="max-w-md mx-auto mt-8">
+   <h2 className="text-2xl font-bold text-gray-800 mb-4">Update Candidate Details</h2>
+   {formData && (
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 {/* form component begins from here */}
                 <div className="mb-4">
@@ -238,7 +310,7 @@ const AddCandidate = () =>{
             <button
               type="button"
               onClick={handleAddSkill}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded focus:outline-none focus:shadow-outline"
+              className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2 me-2"
             >
               Add
             </button>
@@ -286,30 +358,31 @@ const AddCandidate = () =>{
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             type="submit"
           >
-            Submit
+            Update
           </button>
         </div>
             
 
         </form>
-
+)}
         <button
-      className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      className="text-white bg-black hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
       type="submit"
     >
-      <Link to="/candidates" className="text-white">
+      <Link to={`/candidates/${id}`} className="text-white">
         &lt; Back
       </Link>
     </button>
-        
+
         </div>
+    
     )
 
 };
-export default AddCandidate ;
+export default UpdateCandidate ;
 
   
         

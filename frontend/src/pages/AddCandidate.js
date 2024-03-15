@@ -99,6 +99,7 @@ const AddCandidate = () =>{
     return (
     
         <div className="max-w-md mx-auto mt-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Add Candidate</h2>
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 {/* form component begins from here */}
                 <div className="mb-4">
