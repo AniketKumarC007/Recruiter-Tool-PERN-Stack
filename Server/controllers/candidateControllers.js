@@ -1,4 +1,4 @@
-const pool = require("../database");
+const pool = require("../Models/database");
 const getAllCandidadtes = async (req, res) => {
   try {
     const allCandidates = await pool.query("SELECT * FROM Candidate");

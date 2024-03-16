@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require('./database');
+const pool = require('./Models/database');
 const app = express();
 const PORT = 5000;
 // import router 

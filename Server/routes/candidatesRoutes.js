@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pool = require('../database');
+
 const {getACandidadte,
     getAllCandidadtes,
     updateCandidate,
@@ -8,6 +8,7 @@ const {getACandidadte,
     deleteCandidate} = require("../controllers/candidateControllers") ;
 const validateRequestBody = require("../middleware/validationMiddleware") ;
 const computeScore = require("../middleware/computeScoreMiddleware");
+
 // All Required CRUD Operations 
 
 router.get("/",getAllCandidadtes );

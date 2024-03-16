@@ -22,6 +22,7 @@ const AddCandidate = () =>{
     // Final Submission Handler 
 
     const submitFormData = async () => {
+      console.log (formData) ;
         try {
           const response = await axios.post('http://localhost:5000/candidates', formData, {
             headers: {
@@ -30,7 +31,7 @@ const AddCandidate = () =>{
           });
 
           setErrMsg(null) ;
-          console.log('Form data submitted successfully:', response.data);
+          // console.log('Form data submitted successfully:', response.data);
           navigate('/candidates');
         } catch (err) {
           // console.log ( "In Here") ;
