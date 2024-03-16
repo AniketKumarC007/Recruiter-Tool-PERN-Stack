@@ -18,3 +18,40 @@ CRUD Project on PERN Stack
 3. Install dependencies by running `npm install`.
 4. Once the dependencies are installed, start the frontend using `npm start`.
 5. Open your preferred web browser and visit [http://localhost:3000](http://localhost:3000) to view the application.
+
+
+# Instructions to Deploy on Vercel
+
+This document provides step-by-step instructions for deploying the application to Vercel, with the backend connected to a PostgreSQL database and the frontend accessible via the deployed server.
+
+## Backend Deployment (Node.js with PostgreSQL)
+
+1. **Create PostgreSQL Database on Vercel:**
+   - Navigate to the "Storage" section in your Vercel dashboard.
+   - Create a PostgreSQL database and note down the connection link provided.
+
+2. **Connect Database to Node.js Application:**
+   - Use the provided connection link to connect your Node.js application to the PostgreSQL database.
+   - Run the necessary queries to set up your database schema. For example, to create a database named "candidates".
+
+3. **Deploy Backend Server:**
+   - Navigate to the Vercel dashboard.
+   - Click on "New Project" and select "Import Git".
+   - Choose the repository containing your Node.js application.
+   - Follow the prompts to deploy the server.
+
+## Frontend Deployment (React or similar)
+
+4. **Update Endpoint URLs:**
+   - In your frontend code, update the endpoint URLs from `localhost:5000` to the domain link of the deployed server on Vercel.
+
+5. **Push Changes to GitHub:**
+   - Commit and push your changes to your GitHub repository.
+
+6. **Deploy Frontend:**
+   - Navigate to the Vercel dashboard.
+   - Click on "New Project" and select "Import Git".
+   - Choose the repository containing your frontend code.
+   - Follow the prompts to deploy the frontend.
+   - Open the domain link to access the project.
+   
