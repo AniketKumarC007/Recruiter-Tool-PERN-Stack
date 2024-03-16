@@ -15,7 +15,16 @@ CRUD Project on PERN Stack
 1. Open Command Prompt (CMD) on your system.
 2. Navigate to the server directory of the project using the `cd` command.
 3. Install dependencies by running `npm install`.
-4. Once the dependencies are installed, start the server using `node index.js`.
+4. In Models/ Database.js uncomment 
+    // const pool = new Pool({
+//   user: "postgres",
+//   password: "12345",
+//   host: "localhost",
+//   port: 5432,
+//   database: "candidate"
+// }); for connecting it to local postgresql db. 
+
+6. Once the dependencies are installed, start the server using `node index.js`.
 
 ### Running the Frontend
 
