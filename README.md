@@ -1,3 +1,9 @@
+# Demonstration Video
+- https://www.youtube.com/watch?v=v0zX3XwEsAQ 
+
+# Deployed Link
+- https://recruiter-tool-pern-stack-frontend.vercel.app/
+
 # Recruiter tool 
 
 CRUD Project on PERN Stack
