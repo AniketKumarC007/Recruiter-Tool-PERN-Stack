@@ -1,9 +1,12 @@
+
 const express = require("express");
 const cors = require("cors");
 const pool = require('./Models/database');
 const app = express();
 const PORT = 5000;
+
 // import router 
+
 const router = require("./routes/candidatesRoutes");
 
 // middlewares

@@ -1,7 +1,10 @@
 const pool = require("../Models/database");
 const getAllCandidadtes = async (req, res) => {
   try {
+    // console.log("request here") ;
+    
     const allCandidates = await pool.query("SELECT * FROM Candidate");
+    // console.log(allCandidates)
     return res.status(200).json(allCandidates.rows);
   } catch (err) {
     console.error(err.message);
