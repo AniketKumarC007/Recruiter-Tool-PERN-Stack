@@ -15,7 +15,7 @@ CRUD Project on PERN Stack
 1. Open Command Prompt (CMD) on your system.
 2. Navigate to the server directory of the project using the `cd` command.
 3. Install dependencies by running `npm install`.
-4. Once the dependencies are installed, start the server using `nodemon index`.
+4. Once the dependencies are installed, start the server using `node index.js`.
 
 ### Running the Frontend
 
@@ -23,7 +23,8 @@ CRUD Project on PERN Stack
 2. Navigate to the frontend directory of the project using the `cd` command.
 3. Install dependencies by running `npm install`.
 4. Once the dependencies are installed, start the frontend using `npm start`.
-5. Open your preferred web browser and visit [http://localhost:3000](http://localhost:3000) to view the application.
+5. Change the URL from `https://recruiter-tool-pern-stack.vercel.app/candidates` to   `http://localhost:5000/candidates`.
+6. Open your preferred web browser and visit [http://localhost:3000](http://localhost:3000) to view the application.
 
 
 # Instructions to Deploy on Vercel
