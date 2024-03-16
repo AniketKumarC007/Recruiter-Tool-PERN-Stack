@@ -56,7 +56,7 @@ This document provides step-by-step instructions for deploying the application t
    - Choose the repository containing your Node.js application.
    - Follow the prompts to deploy the server.
 
-## Frontend Deployment (React or similar)
+## Frontend Deployment (React)
 
 4. **Update Endpoint URLs:**
    - In your frontend code, update the endpoint URLs from `localhost:5000` to the domain link of the deployed server on Vercel.
