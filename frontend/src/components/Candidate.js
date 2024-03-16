@@ -10,7 +10,8 @@ const Candidate = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const id = useParams().id;
    // console.log(id);
-  const URL = `http://localhost:5000/candidates/${id}`;
+  // const URL = `http://localhost:5000/candidates/${id}`;
+  const URL = `https://recruiter-tool-pern-stack.vercel.app/candidates/${id}`;
 
   const fetchHandler = async () => {
     try {

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 const AddCandidate = () =>{
     const navigate = useNavigate();
+    const URL = `https://recruiter-tool-pern-stack.vercel.app/candidates`;
     const [formData , setFormData] = useState(
         {
             name: "",
@@ -24,7 +25,7 @@ const AddCandidate = () =>{
     const submitFormData = async () => {
       console.log (formData) ;
         try {
-          const response = await axios.post('http://localhost:5000/candidates', formData, {
+          const response = await axios.post(URL, formData, {
             headers: {
               'Content-Type': 'application/json',
             },

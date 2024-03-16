@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import image1 from "./image1.jpg" ;
-const URL = "http://localhost:5000/candidates";
+// const URL = "http://localhost:5000/candidates";
+const URL = "https://recruiter-tool-pern-stack.vercel.app/candidates";
 const fetchHandler = async() =>{
     try{
         const response = await axios.get(URL);

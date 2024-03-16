@@ -8,7 +8,7 @@ const UpdateCandidate = () =>{
     const { id } = useParams();
     // console.log(id) ;
 
-    const URL = `http://localhost:5000/candidates/${id}` ;
+    const URL = `https://recruiter-tool-pern-stack.vercel.app/candidates/${id}` ;
     const [formData , setFormData] = useState(
         {
             name: "",
