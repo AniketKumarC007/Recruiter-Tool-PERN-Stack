@@ -22,9 +22,8 @@ CRUD Project on PERN Stack
 //   host: "localhost",
 //   port: 5432,
 //   database: "candidate"
-// }); for connecting it to local postgresql db. 
-
-6. Once the dependencies are installed, start the server using `node index.js`.
+// });and modify the credentials to connect it to own postgresql db.
+5. Once the dependencies are installed, start the server using `node index.js`.
 
 ### Running the Frontend
 
