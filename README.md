@@ -71,12 +71,12 @@ This document provides step-by-step instructions for deploying the application t
    - Open the domain link to access the project.
 
 # Note 
-const pool = new Pool({
+- const pool = new Pool({
     connectionString:"postgres://default:xQvCAhWEj1b8@ep-ancient-shape-a4l3l47j-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
   }) 
-Its not possible to the access this vercel postgresql db through the local host as the connection method comes with the requiremnt of sslmode=require. 
-While locally running on windows machine the domain is generally http:localhost:PORT_No. i.e without the ssl certificate . 
-So conclusion is that the vercel db can be only accessible through the deployed server link. For locally running the project one has to create the candidate table in the postgresql db with required attributes (code given under Model/database.sql ) and  modifiy the snippet const pool = new Pool({
+- Its not possible to the access this vercel postgresql db through the local host as the connection method comes with the requiremnt of sslmode=require. 
+- While locally running on windows machine the domain is generally http:localhost:PORT_No. i.e without the ssl certificate . 
+- So conclusion is that the vercel db can be only accessible through the deployed server link. For locally running the project one has to create the candidate table in the postgresql db with required attributes (code given under Model/database.sql ) and  modifiy the snippet const pool = new Pool({
   user: "postgres",        // Replace "postgres" with your PostgreSQL username
   password: "12345",       // Replace "12345" with your PostgreSQL password
   host: "localhost",       // Replace "localhost" if your PostgreSQL server is hosted elsewhere
